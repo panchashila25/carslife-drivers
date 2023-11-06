@@ -1,0 +1,36 @@
+<ion-header mode="ios">
+  <ion-toolbar  color="primary">
+    <ion-title class="font">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <ion-content>
+    <ion-item id="img" lines="none">
+      <img src="assets/img/logo.png" alt="">
+    </ion-item>
+
+    <ion-card class="shadow-none">
+      <ion-card-header class="text-center">
+        <ion-card-title class="text-3xl font-bold">Welcome</ion-card-title>
+        <ion-card-subtitle class="text-lg">You are just one step away</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-item class="mt-2">
+        <ion-input label="Mobile" labelPlacement="stacked" type="number" placeholder="Enter Mobile" [(ngModel)]="mobile"></ion-input>
+      </ion-item>
+      <ion-item class="mt-2">
+        <ion-label class="text-xl"><h1 class="text">OTP</h1></ion-label>
+        <ion-input label="OTP" labelPlacement="stacked" type="number" placeholder="Enter OTP" [(ngModel)]="otp"></ion-input>
+      </ion-item>
+      <div class="text-center mt-5">
+        <ion-button mode="ios" color="secondary" class="font-bold" (click)="loginpage()" id="five">Login
+          <ion-icon name="arrow-forward-outline" class="ml-3" size="larger"></ion-icon>
+        </ion-button>
+      </div>
+      <div class="text-center" id="account" >
+        <a href="/register" class="" id="four">Create Account</a>
+      </div>
+    </ion-card>
+  </ion-content>
+
+  <ion-loading class="custom-loading" trigger="four" message="Loading..." [duration]="1000"></ion-loading>
+  <ion-loading class="custom-loading" trigger="five" message="Loading..." [duration]="1000"></ion-loading>

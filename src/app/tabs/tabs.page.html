@@ -1,0 +1,35 @@
+
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="dashboard" href="/dashboard">
+      <ion-icon name="home" id="ones"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="wallet" href="/wallet">
+      <ion-icon name="wallet-outline" id="two"></ion-icon>
+      <ion-label>Wallets</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="Booking" href="/Booking">
+      <ion-icon name="clipboard-sharp" id="three"></ion-icon>
+      <ion-label>Booking</ion-label>
+    </ion-tab-button>
+
+
+    <ion-tab-button tab="Profile" href="/Profile">
+      <ion-icon name="person-circle-outline" id="open-loading"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+
+
+  </ion-tab-bar>
+</ion-tabs>
+
+
+<!-- Loader -->
+<ion-loading class="custom-loading" trigger="open-loading" message="Loading..." [duration]="1000"></ion-loading>
+<ion-loading class="custom-loading" trigger="ones" message="Loading..." [duration]="1000"></ion-loading>
+<ion-loading class="custom-loading" trigger="two" message="Loading..." [duration]="1000"></ion-loading>
+<ion-loading class="custom-loading" trigger="three" message="Loading..." [duration]="1000"></ion-loading>
