@@ -1,190 +1,288 @@
-
-
-
 <ion-content>
   <form [formGroup]="RestristaionForm" (ngSubmit)="onSubmit()">
-  <swiper-container >
-    <swiper-slide>
-      <ion-header mode="ios">
-        <ion-toolbar  color="primary">
-          <ion-title class="font">Register</ion-title>
-          <ion-icon name="arrow-forward-outline" class="ml-3" size="larger" class="float-right text-3xl"></ion-icon>
-        </ion-toolbar>
-      </ion-header>
-      <ion-item  lines="none">
-        <ion-label  class="my-0">
-         First Name
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-input  placeholder="Enter First Name" type="text" formControlName="name">
-        </ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label  class="my-0">
-        Last Name
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-input  mode="ios" placeholder="Enter Last Name" type="text" formControlName="lastName">
-        </ion-input>
-      </ion-item>
+    <swiper-container>
+      <swiper-slide class="slide">
+        <ion-header mode="ios">
+          <ion-toolbar color="primary">
+            <ion-title class="font">Register</ion-title>
+            <ion-icon name="arrow-forward-outline" class="ml-3" size="larger" class="float-right text-3xl" (click)="goNext()" id="nextBtn"></ion-icon>
+          </ion-toolbar>
+        </ion-header>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            First Name
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Enter First Name" type="text" formControlName="name">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Last Name
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input mode="ios" placeholder="Enter Last Name" type="text" formControlName="lastName">
+          </ion-input>
+        </ion-item>
 
 
-      <ion-item lines="none">
-        <ion-label  class="my-0">
-        Mobile
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-input  mode="ios" placeholder="Enter Mobile Number" type="text" formControlName="mobile">
-        </ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label  class="my-0">
-     Email
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-input  placeholder="Enter Email" type="text" lastName="" formControlName="email">
-        </ion-input>
-      </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Mobile
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input mode="ios" placeholder="Enter Mobile Number" type="text" formControlName="mobile">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Email
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Enter Email" type="text" lastName="" formControlName="email">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            DOB
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Enter Email" type="date" formControlName="dob" (change)="calculateAge()">
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Age
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-item>
+            {{age}}
+          </ion-item>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Address
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Address" type="text" formControlName="address">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Aadhar card number
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Aadhar number" type="Number" formControlName="govId">
+          </ion-input>
+        </ion-item>
 
 
-      <ion-item lines="none">
-        <ion-label  class="my-0">
-     Age
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-input  placeholder="Enter Age" type="text" lastName="" formControlName="age">
-        </ion-input>
-      </ion-item>
+        <ion-itom lines="none">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-label class="">Gender</ion-label>
+              </ion-col>
+              <ion-col>
+                <ion-radio-group value="Gender" class="" formControlName="gender">
+                  <ion-radio value="Male" style="margin-right: 10px;">Male</ion-radio>
+                  <ion-radio value="Female" class="">Female</ion-radio>
+                </ion-radio-group>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
 
-   
-      
-
-
-
-
-
-<ion-item lines="none">
-  <ion-label  class="my-0">
-Address
-  </ion-label>
-</ion-item>
-<ion-item>
-  <ion-input  placeholder="Address" type="text" formControlName="address">
-  </ion-input>
-</ion-item>
-<ion-item lines="none">
-  <ion-label  class="my-0">
-Aadhar card number
-  </ion-label>
-</ion-item>
-<ion-item>
-  <ion-input  placeholder="Aadhar number" type="text" formControlName="govId">
-  </ion-input>
-</ion-item>
+        </ion-itom>
+        <div class="text-center mt-8" id="account">
+          <a href="/login" class="" id="one">Already Account</a>
+        </div>
+      </swiper-slide>
 
 
-<ion-itom lines="none">
-<ion-grid>
-  <ion-row>
-    <ion-col>
-      <ion-label  class="">Gender</ion-label></ion-col>
-    <ion-col>
-      <ion-radio-group value="Gender" class="" formControlName="gender">
-      <ion-radio value="grapes" style="margin-right: 10px;">Male</ion-radio>
-      <ion-radio value="cherries" class="">Female</ion-radio>
-    </ion-radio-group>
-  </ion-col>
-  </ion-row>
-</ion-grid>
-
-</ion-itom>
-<div class="text-center mt-8" id="account" >
-  <a href="/login" class="" id="one">Already Account</a>
-</div>
-</swiper-slide>
-   
-
-
-    <swiper-slide>
-      <ion-header mode="ios">
-        <ion-toolbar  color="primary">
-          <ion-title class="font">Register</ion-title>
-          <ion-icon name="arrow-back-outline" class="ml-3" size="larger" class="text-3xl"></ion-icon>
-        </ion-toolbar>
-      </ion-header>
-      <ion-item lines="none">
-        <ion-label  class="my-0">
-     Car name(Brand)
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-input  placeholder="Car Brand" type="text" formControlName="carName">
-        </ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label  class="my-0">
-     Car No
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-input  placeholder="Car No(RC)" type="text" formControlName="carNo">
-        </ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label  class="my-0">
-     Purchase Year 
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-input  placeholder="Enter Email" type="date" formControlName="perchaseYear">
-        </ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label  class="my-0">
-          Car Document
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <input type="file" (change)="loadImageFromDevice($event)" id="file-input" formControlName="carDocument"
-          accept="image/png, image/jpeg">
+      <swiper-slide class="slide">
+        <ion-header mode="ios">
+          <ion-toolbar color="primary">
+            <ion-title class="font">Register</ion-title>
+            <ion-icon name="arrow-back-outline" class="ml-3" size="larger" id="prevBtn"  class="text-3xl" (click)="goPrev()"></ion-icon>
+            <ion-icon name="arrow-forward-outline" class="ml-3" size="larger" id="nextBtn" class="float-right text-3xl" (click)="goNext()"></ion-icon>
+          </ion-toolbar>
+        </ion-header>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+           State
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Enter State" type="text" formControlName="state">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            PinCode
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Enter Pin Code" type="Number" formControlName="pinCode">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            City
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Enter City" type="text" formControlName="city">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Package Price
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Enter Package Price" type="Number" formControlName="packagePrice">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Package KM
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Enter Package KM" type="Number" formControlName="PackageKm">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Rate/KM
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Enter Rate/Km" type="Number" formControlName="ratePerKm">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            license No
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Car No(RC)" type="text" formControlName="licenseno">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Police Varification Doc
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <input type="file" (change)="uploadedPolicevarify($event)" id="file-input" accept="image/png, image/jpeg">
           <ion-icon lazy="true" slot="end" name="image"></ion-icon>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label  class="my-0">
-          Driving License
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <input type="file" (change)="loadImageFromDevice($event)" id="file-input" formControlName="licenseno"
-          accept="image/png, image/jpeg">
+        </ion-item>
+
+      </swiper-slide>
+      <swiper-slide class="slide">
+        <ion-header mode="ios">
+          <ion-toolbar color="primary">
+            <ion-title class="font">Register</ion-title>
+            <ion-icon name="arrow-back-outline" class="ml-3" size="larger" id="prevBtn" class="text-3xl" (click)="goPrev()" ></ion-icon>
+          </ion-toolbar>
+        </ion-header>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Car name(Brand)
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Car Brand" type="text" formControlName="carName">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Car name(Brand)
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Car Catagory" type="text" formControlName="carCategery">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Car Model
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Enter Car Model" type="text" formControlName="modelName">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Car No
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Car No(RC)" type="text" formControlName="carNo">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Purchase Year
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Enter Email" type="date" formControlName="perchaseYear">
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Car Document
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <input type="file" (change)="uploadedfileCarDoc($event)" id="file-input" accept="image/png, image/jpeg">
           <ion-icon lazy="true" slot="end" name="image"></ion-icon>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label  class="my-0">
-          Car Photo
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <input type="file" (change)="loadImageFromDevice($event)" id="file-input" formControlName="carphoto"
-          accept="image/png, image/jpeg">
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Driving License
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <input type="file" (change)="uploadedfile($event)" id="file-input"
+            accept="image/png, image/jpeg">
           <ion-icon lazy="true" slot="end" name="image"></ion-icon>
-      </ion-item>
-      <div class="text-center mt-2">
-        <ion-button class="text-center" mode="ios"color="secondary" (click)="registration()" id="two">Register</ion-button>
-      </div>
-  
-    </swiper-slide>
-  </swiper-container>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="my-0">
+            Car Photo
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <input type="file" (change)="uploadedCarphoto($event)" id="file-input"
+            accept="image/png, image/jpeg">
+          <ion-icon lazy="true" slot="end" name="image"></ion-icon>
+        </ion-item>
+        <div class="text-center mt-2">
+          <ion-button class="text-center" mode="ios" color="secondary" (click)="onSubmit()" id="two">Register
+          </ion-button>
+        </div>
+
+      </swiper-slide>
+    </swiper-container>
   </form>
 </ion-content>
 
 
-<ion-loading class="custom-loading" trigger="open-loading" message="Loading..." [duration]="1000"></ion-loading>
+<!-- <ion-loading class="custom-loading" trigger="open-loading" message="Loading..." [duration]="1000"></ion-loading> -->
 <ion-loading class="custom-loading" trigger="one" message="Loading..." [duration]="1000"></ion-loading>
 <ion-loading class="custom-loading" trigger="two" message="Loading..." [duration]="1000"></ion-loading>
-<ion-loading class="custom-loading" trigger="three" message="Loading..." [duration]="1000"></ion-loading>
+<!-- <ion-loading class="custom-loading" trigger="three" message="Loading..." [duration]="1000"></ion-loading> -->

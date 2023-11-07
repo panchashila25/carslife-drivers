@@ -16,7 +16,7 @@ register()
     FormsModule,
     IonicModule,
     RegisterPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [RegisterPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

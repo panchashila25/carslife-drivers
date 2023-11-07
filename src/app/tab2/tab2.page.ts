@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../core/api.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
-
+  constructor(public api:ApiService) {}
+   createTransaction(){
+    this.api.createTransaction
+   }
 }

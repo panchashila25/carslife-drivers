@@ -8,12 +8,12 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>  
-  <ion-card class="text-center bg-[#3D348B]">
+  <ion-card class="text-center bg-[#3D348B] pt-34">
     <ion-card-title>
-      <div class="flex text-white">
+      <!-- <div class="flex text-white">
         <h1 class="p-2 text-4xl"><ion-icon name="person-circle-outline"></ion-icon></h1>
         <h1 class="p-2 text-3xl">Profile</h1>
-      </div>
+      </div> -->
     </ion-card-title>
     <img alt="Silhouette of mountains" src="assets/img/user1.avif" width="30%" class="m-auto rounded-full" />
     <ion-card-header>
@@ -27,33 +27,33 @@
   </ion-card>
 
 
-
-  <ion-card id="one">
+ <ion-card id="one">
     <ion-card-header class="">
       <ion-card-title class="text-black font-Ubuntu">Preferances & Settings</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-list>
-        <ion-item class="p-1" lines="none">
+        <ion-card>
+        <!-- <ion-item class="p-1" lines="none">
           <div class="flex">
             <ion-icon name="settings-sharp" class="text-3xl m-1 text-black"></ion-icon>
             <h1 class="m-1 text-black font-Ubuntu p-1">Settings</h1>
           </div>
             <div slot="end">
-              <ion-icon name="arrow-forward-circle-outline" class="text-4xl m-1 text-black"></ion-icon>
+              <ion-icon name="arrow-forward-circle-outline" class="text-4xl  text-black"></ion-icon>
             </div>
-        </ion-item>
+        </ion-item> -->
 
 
 
 
-        <ion-item class="p-1"  lines="none">
+        <!-- <ion-item class="p-1"  lines="none">
           <div class="flex">
-            <ion-icon name="newspaper-outline" class="text-3xl m-1 text-black"></ion-icon>
+            <ion-icon name="newspaper-outline" class="text-3xl  text-black"></ion-icon>
             <h1 class="m-1 text-black font-Ubuntu p-1">Policies</h1>
           </div>
           <div slot="end">
-            <ion-icon name="arrow-forward-circle-outline" class="text-4xl m-1 text-black"></ion-icon>
+            <ion-icon name="arrow-forward-circle-outline" class="text-4xl  text-black"></ion-icon>
           </div>
         </ion-item>
 
@@ -73,4 +73,28 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
+  -->
+
+
+
+ <ion-list >
+  <ion-item>
+    <ion-icon name="settings-outline"></ion-icon>
+    <ion-label class="card-item">Settings</ion-label>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item >
+    <ion-icon name="newspaper-outline"></ion-icon>
+    <ion-label class="card-item">Policies</ion-label>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item >
+    <ion-icon name="log-out-outline"></ion-icon>
+    <ion-label class="card-item" color="danger">Logout</ion-label>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+</ion-list>
+ 
 

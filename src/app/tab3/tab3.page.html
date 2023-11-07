@@ -8,29 +8,41 @@
 
 
 <ion-content>
-      <ion-datetime presentation="date"></ion-datetime>
-<div class="mt-4px">
-  <ion-card color="">
-    <ion-card-header class="text-3xl text-Ubuntu text-white " color="primary">
+  <ion-card>
+    <ion-card-header color="primary">
+      <ion-datetime  presentation="date" class="border-2 border-solid border-black shadow-xl text-black" ></ion-datetime>
+    </ion-card-header>
+  </ion-card>
+    
+<div class="" >
+  <ion-card class="bg-grey  border-black border-3 border-solid">
+    <ion-card-header class="text-3xl text-Ubuntu shadow-none" color="" lines="none" >
       <div class="flex">
-        <ion-icon name="person-circle-outline" class="p-3 text-4xl"></ion-icon>
+        <ion-icon name="person-circle-outline" class="p-3 text-4xl "></ion-icon>
         <ion-card-title class="p-4">Krushna Deshmukh</ion-card-title>
       </div>
    
       <ion-item>
         <ion-label>
-          <h3 class="text-3xl">pick up</h3>
+          <div class="flex">
+            <h1 class="p-1"> <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg></h1>
+            <h2 class="p-2 ">Pick Up</h2>
+          </div>
+          
           <p></p>
         </ion-label>
       </ion-item>
       <ion-item>
         <ion-label>
-          <h3>Drop off</h3>
+          <div class="flex">
+            <h1 class="p-1"><ion-icon name="golf-outline"></ion-icon></h1>
+            <h3 class="p-2">Drop Off</h3>
+          </div>
+          
           <p></p>
         </ion-label>
       </ion-item>
     </ion-card-header>
-    <ion-button>submit</ion-button>
   </ion-card>
 
 </div>
