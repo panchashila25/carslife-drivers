@@ -6,8 +6,35 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ApiService {
+  _header:any
 
   constructor(public http:HttpClient) { }
+
+  login(data:any){
+    console.log(data)
+    return this.http.post<any>(`${environment.baseURL}auth/authenticate`,data,{
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .pipe(map((data,re)=>{
+      return data;
+    }));
+}
+
+
+register(data:any){
+  console.log(data)
+  return this.http.post<any>(`${environment.baseURL}auth/register`,data,{
+    headers:this._header
+  })
+  .pipe(map((data,re)=>{
+    return data;
+  }));
+}
+
+
+
 
 // Create Driver
 
@@ -24,8 +51,8 @@ createDriver(data:any){
 
 // Get All Driver
 
-GetallDriver(data:any){
-  return this.http.post<any>(`${environment.baseURL}driver/get`,data,{
+GetallDriver(data:any, page: number = 1, limit: number = 25, searchTerm: any){
+  return this.http.post<any>(`${environment.baseURL}driver/get`+ '?page=' + page + '&limit=' + limit + '&searchTerm=' + searchTerm,data,{
     headers: {
       'Content-Type': 'application/json'
     }
@@ -124,11 +151,21 @@ updateTransaction( id:any ,data:any){
 
 deleteTransaction(id:any){
   return this.http.post<any> (`${environment.baseURL}transaction/`+id,{
-    
-
 })
 .pipe(map((data:any)=>{
   return data;
 }))
+}
+
+
+
+
+sendOTP(data: any) {
+  return this.http.post<any>(`${environment.baseURL}auth/sendOTPs`, data, { 
+    headers:
+     { 'Content-Type': 'application/json' } })
+    .pipe(map((data: any) => {
+      return data;
+    }));
 }
 }
