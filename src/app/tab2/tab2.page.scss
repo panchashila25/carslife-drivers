@@ -8,10 +8,14 @@ ion-header {
       }
     }
   }
-  
+  ion-note{
+   text-align: center;
+
+
+  }
   ion-content {
     * {
-      font-family: lato;
+      font-family: Ubuntu;
     }
   
     .main-header {
@@ -104,4 +108,4 @@ ion-header {
       }
     }
   }
-  
+
