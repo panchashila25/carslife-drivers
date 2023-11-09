@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../core/api.service';
+import { AuthService } from '../core/auth.service';
+import { find } from 'rxjs';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,8 @@ import { ApiService } from '../core/api.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page  implements OnInit{
+
+  data=false;
   // features: any[] = [
   //   {id: 1, name: 'Add', src: 'assets/img/add-money.jpg', background: 'rgba(27,150,181, 0.1)', page: ''},
   //   {id: 2, name: 'Withdraw', src: 'assets/img/withdraw.jpg', background: 'rgba(106,100,255, 0.1)', page: ''},
@@ -19,13 +23,60 @@ export class Tab2Page  implements OnInit{
     {id: 2, vendor: 'Debited from wallet', image: '', amount: -1200, time: '4:00PM'}
   ];
 
-  constructor(public api:ApiService)  {}
+  balances=0;
+  finalBalance=0
+  amount:any="";
+  Withdraw=false;
+  add=true
+  credit="credit"
+  finalData:any;
+  driverId:any;
+  list:any=[];
+  Transaction:any=[];
+  discription="Amount credited Sucessfully"
+  constructor(public api:ApiService,public auth:AuthService)  {}
   ngOnInit(): void {
-    this.createTransaction()
+    this.driverId=this.auth.currentUserValue._id
+    console.log(this.driverId)
+
+    
+    this.api.getAllUser({_id:this.driverId}).subscribe((cdata:any)=>{
+      this.list=cdata.data
+      console.log(this.list)
+    })
+
+    this.api.getTransaction({driver:this.driverId}).subscribe((data:any)=>{
+      this.Transaction=data.data
+      console.log(this.Transaction)
+    })
   }
+
+  addmoney(){
+    this.data=true;
+  }
+
+  Withdrawmoney(){
+    this.Withdraw=true;
+    this.add=false
+  }
+
+
+
+
    createTransaction(){
-  this.api.getTransaction({}).subscribe((cdata:any)=>{
-      console.log(cdata.user)
+    const data=JSON.stringify(({
+      balance:this.amount,
+      transactionType:this.credit,
+      discription:this.discription,
+      driver:this.driverId
+    }))
+    this.api.createTransaction((data)).subscribe((cdata:any)=>{
+      console.log(cdata)
     })
    }
+
+
+
+
+
 }

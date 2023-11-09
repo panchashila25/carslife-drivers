@@ -90,11 +90,15 @@
           <ion-card class="text-center">
             <ion-card-header class="text-2xl">Wallet Balance</ion-card-header>
             <ion-card-content class="text-center">
-              <div class="card">
+              <div class="card" *ngFor="let item of list">
                 <h1><ion-icon name="card-outline"></ion-icon></h1>
-                <h1>₹ 500</h1></div>
-              <div>
-                <ion-button color="secondary" class="rounded-3xl text-base">+Add Money</ion-button>
+                <h1>₹{{item.walletBalance}}</h1></div>
+                <div *ngIf="data">
+                  <ion-label>Amount</ion-label>
+                  <ion-input [(ngModel)]="amount" (change)="createTransaction()"></ion-input>
+                </div>
+              <div *ngIf="add">
+                <ion-button color="secondary" class="rounded-3xl text-base" (click)="addmoney()">+Add Money</ion-button>
               </div>
             </ion-card-content>
           </ion-card>
@@ -111,15 +115,19 @@
       <ion-list-header class="mt-5">
         <ion-label class="text-lg">RECENT TRANSACTIONS</ion-label>
       </ion-list-header>
-      <ion-item lines="none" *ngFor="let item of transactions">
+      <ion-item lines="none" *ngFor="let item of Transaction">
         <ion-icon slot="start" name="cash" color="primary"></ion-icon>
         <ion-label size="large" class="ion-text-wrap">
-          <b>{{item.vendor}}</b>
-          <p>
-            {{item?.time}}
-          </p>
+          <div class="flex">
+            <div class="flex-1">
+              <b>{{item.transactionType}}</b>
+            </div>
+          </div>
+          
+          <h3 class="">{{item.updatedAt| date:'dd MMM yyyy'}}</h3>
+          <h4>{{item.discription}}</h4>
         </ion-label>
-        <ion-text slot="end" [color]="item?.amount > 0 ? 'success' : 'danger'">₹{{item?.amount}}</ion-text>
+        <ion-text slot="end" [color]="item?.amount > 0 ? 'success' : 'danger'">₹{{item?.balance}}</ion-text>
       </ion-item>
     </ion-list>
   </ion-grid>

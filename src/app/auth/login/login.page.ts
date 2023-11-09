@@ -43,7 +43,7 @@ export class LoginPage implements OnInit {
 
   mobileCheck(event:any){
     if(event.target.value.toString().length == 10){
-      this.api.GetallDriver({mobile:parseInt(event.target.value),role:"driver"},1,1,"").subscribe(us => {
+      this.api.GetallDriver({mobile:parseInt(event.target.value),role:"driver"}).subscribe(us => {
         if(us.data.length == 0){
           this.isRegister = false
           this.isSendOTP = true;

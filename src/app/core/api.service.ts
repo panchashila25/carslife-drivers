@@ -51,8 +51,8 @@ createDriver(data:any){
 
 // Get All Driver
 
-GetallDriver(data:any, page: number = 1, limit: number = 25, searchTerm: any){
-  return this.http.post<any>(`${environment.baseURL}driver/get`+ '?page=' + page + '&limit=' + limit + '&searchTerm=' + searchTerm,data,{
+GetallDriver(data:any){
+  return this.http.post<any>(`${environment.baseURL}driver/get`,data,{
     headers: {
       'Content-Type': 'application/json'
     }
@@ -101,7 +101,16 @@ onupload(data: any){
   }
   
 
-
+  getAllUser(data:any) {
+    return this.http.post < any > (`${environment.baseURL}user/get`,data,{
+      headers: {
+        'Content-Type': 'application/json'
+      }
+      })
+      .pipe(map((data: any) => {
+        return data;
+      }));
+  }
 
 
 
@@ -124,8 +133,8 @@ onupload(data: any){
   }))
 }
 // Get all
-getTransaction(data:any){
-  return this.http.post<any> (`${environment.baseURL}transaction/get`,data,{
+getTransaction(id:any){
+  return this.http.post<any> (`${environment.baseURL}transaction/get`,id,{
     headers:{
       "Content-Type":"application/json"
   }
