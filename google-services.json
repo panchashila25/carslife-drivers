@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "970715582313",
+    "project_id": "carslife-769d8",
+    "storage_bucket": "carslife-769d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970715582313:android:16235d01b096e7f96d37f8",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZkRzNIrv_3VBQ48hXoOXK4a3IIr_XQsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
