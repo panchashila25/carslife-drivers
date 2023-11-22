@@ -177,4 +177,43 @@ sendOTP(data: any) {
       return data;
     }));
 }
+// booking
+// // Create 
+
+// createBookings(data:any){
+//   return this.http.post < any > (`${environment.baseURL}booking`, data, {
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+//   })
+//   .pipe(map((data: any) => {
+//     return data;
+//   }));
+// }
+// Get All Bookings
+
+GetallBookings(data:any){
+  return this.http.post<any>(`${environment.baseURL}bookings/get`,data,{
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .pipe(map((data:any)=>{
+      return data
+    }));
+}
+// update bookings
+updateBookings( id:any ,data:any){
+  return this.http.post<any> (`${environment.baseURL}bookings/`+id,data,{
+    headers:{
+      "Content-Type":"application/json"
+  }
+
+})
+.pipe(map((data:any)=>{
+  return data;
+}))
+}
+
+
 }
