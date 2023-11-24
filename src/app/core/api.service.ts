@@ -192,6 +192,8 @@ sendOTP(data: any) {
 // }
 // Get All Bookings
 
+
+
 GetallBookings(data:any){
   return this.http.post<any>(`${environment.baseURL}bookings/get`,data,{
     headers: {
@@ -202,9 +204,12 @@ GetallBookings(data:any){
       return data
     }));
 }
+
+
+
 // update bookings
 updateBookings( id:any ,data:any){
-  return this.http.post<any> (`${environment.baseURL}bookings/`+id,data,{
+  return this.http.put<any> (`${environment.baseURL}bookings/`+id,data,{
     headers:{
       "Content-Type":"application/json"
   }

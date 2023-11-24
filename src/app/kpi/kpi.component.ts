@@ -6,13 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./kpi.component.scss'],
 })
 export class KpiComponent  implements OnInit {
-  kpiValue:number;
 
   ngOnInit(){
-    this.kpiValue = 1000;
   }
   constructor() { }
-
-  ngOnInit() {}
-
 }
